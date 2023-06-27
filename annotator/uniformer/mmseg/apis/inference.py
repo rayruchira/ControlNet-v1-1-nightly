@@ -126,11 +126,11 @@ def show_result_pyplot(model,
     """
     if hasattr(model, 'module'):
         model = model.module
-    img = model.show_result(
+    img, seg = model.show_result(
         img, result, palette=palette, show=False, opacity=opacity)
     # plt.figure(figsize=fig_size)
     # plt.imshow(mmcv.bgr2rgb(img))
     # plt.title(title)
     # plt.tight_layout()
     # plt.show(block=block)
-    return mmcv.bgr2rgb(img)
+    return mmcv.bgr2rgb(img), seg
